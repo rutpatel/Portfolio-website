@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> TRY OUT YOUR LUCK! </title>
+          <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="game.js"></script>
+       <style type="text/css">
+            body{
+                text-align: center;
+                margin: auto;
+                background-image: url(images/Purple-Plain-Textures2.jpg);   
+            }
+        </style>
+        <script language="javascript">
+            
+            var theNumber = Math.floor(Math.random()*100+1);
+            var countGuesses = 0;
+        
+            function checkguess() {
+                var guess = document.getElementById('guess');
+                var output= document.getElementById('output');
+                var myNumber = guess.value;
+                
+                countGuesses++;
+                
+                if (myNumber < theNumber) {
+                    output.value= "Low! Try a Higher Number.";
+                    //alert(" Low! Try a Higher Number.")};
+                }
+                
+                else if (myNumber > theNumber){
+                    output.value="High! Try a Smaller Number.";
+                    //alert("High! Try a Lower Number.");   
+                }
+                else if (myNumber == theNumber){
+                    output.value="Thats the SECRET NUMBER! You got it in " + countGuesses + " tries! Play again...";
+                    alert("The number was " + theNumber + "! You Won After " + countGuesses + " Guesses!");
+                    theNumber = Math.floor(Math.random()*100+1);
+                    countGuesses = 0;
+                }
+            }
+    
+        </script>
+    
+    </head>
+    
+    
+   <body>
+       <div id="giveinput" class="row">
+           
+       <h1> LET'S PLAY A GUESSING GAME!</h1>
+           <h5> (Try to find the SECRET NUMBER in the least number of guesses)</h5><br/>
+         <div id = "allinput">
+           <form>
+               Enter a number from 1 to 100:
+           <input id="guess" type="text" size="8" /> 
+           <br/><br/>
+           <input type="button" class="btn btn-primary" value="Guess" onclick="checkguess()"/> 
+           <br/><br/>
+           <input id="output" type="text" size="40">
+           <br/>
+           </form>
+           </div> 
+           <input type="button" class="btn btn-primary" value="reset" onclick="location.reload()"/>
+           
+       </div>
+    
+    
+    
+    
+    </body>    
+
+</html>

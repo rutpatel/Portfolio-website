@@ -1,0 +1,138 @@
+p {
+    font-size: 20px;
+    text-align: center;
+}
+h4 {
+    font-size: 23px;
+}
+
+.carousel-caption h1 {
+    font-size: 45px;
+}
+
+.col-lg-12 {
+    margin-top: 30px;
+}
+
+.header h1 {
+   font-size: 50px;
+}
+
+.container-body {
+    margin-bottom: 35px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.thumbnail {
+    background-color: #DDD;
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #9bd;
+    z-index: 9999;
+    border: 0;
+    font-size: 20px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 0.5px;
+    border-radius: 0;
+}
+
+.navbar li a, .navbar .navbar-brand {
+    color: #FFF !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #000!important;
+    background-color: #FFF !important;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #FFF !important;
+}
+.navbar-toggle {
+    border: none;
+    outline: none;
+}
+.navbar-brand {
+    font-size: 27px;
+}
+
+@media (max-width: 992px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+}
+
+.slideanim {visibility:hidden;}
+.slides {
+    /* The name of the animation */
+    animation-name: slides;
+    -webkit-animation-name: slides; 
+    /* The duration of the animation */
+    animation-duration: 1s; 
+    -webkit-animation-duration: 1s;
+    /* Make the element visible */
+    visibility: visible; 
+}
+
+/* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+@keyframes slides {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+    } 
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    } 
+}
+@-webkit-keyframes slides {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+    } 
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
+}
+

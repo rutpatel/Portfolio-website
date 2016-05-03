@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <title> Tic Tac Toe! </title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" scr="game.js"></script>
+
+    <style type="text/css">
+    
+        body {
+            background-image: url(images/ttt.jpg);
+            background-size: cover;
+        }
+    </style>
+    <script>
+       var player = 1;
+       function clickBtn(btn) {
+          if(player == 1){
+              document.getElementById(btn).value ="X";
+              document.getElementById(btn).disabled ="disabled";
+              player -= 1;    
+              winner();
+          }
+          else{
+            document.getElementById(btn).value = "O";
+            document.getElementById(btn).disabled = "disabled";
+             player += 1;
+              winner();
+         }
+     }
+        
+     function winner() {
+         if(
+         document.getElementById("btn1").value == "X" &&
+         document.getElementById("btn2").value == "X" &&
+         document.getElementById("btn3").value == "X" ||
+             
+         document.getElementById('btn4').value == "X" &&
+         document.getElementById('btn5').value == "X" &&
+         document.getElementById('btn6').value == "X" || 
+             
+         document.getElementById('btn7').value == "X" &&
+         document.getElementById('btn8').value == "X" &&
+         document.getElementById('btn9').value == "X" || 
+    
+         document.getElementById("btn1").value == "X" &&
+         document.getElementById("btn4").value == "X" &&
+         document.getElementById("btn7").value == "X" ||
+             
+         document.getElementById('btn2').value == "X" &&
+         document.getElementById('btn5').value == "X" &&
+         document.getElementById('btn8').value == "X" || 
+             
+         document.getElementById('btn3').value == "X" &&
+         document.getElementById('btn6').value == "X" &&
+         document.getElementById('btn9').value == "X" || 
+             
+         document.getElementById('btn1').value == "X" &&
+         document.getElementById('btn5').value == "X" &&
+         document.getElementById('btn9').value == "X" ||
+             
+         document.getElementById('btn3').value == "X" &&
+         document.getElementById('btn7').value == "X" &&
+         document.getElementById('btn5').value == "X"     
+         ) {
+             alert("THE WINNER IS X!!!!");
+             reset();
+         }
+        else if (
+        document.getElementById("btn1").value == "O" &&
+         document.getElementById("btn2").value == "O" &&
+         document.getElementById("btn3").value == "O" ||
+            
+         document.getElementById('btn4').value == "O" &&
+         document.getElementById('btn5').value == "O" &&
+         document.getElementById('btn6').value == "O" || 
+             
+         document.getElementById('btn7').value == "O" &&
+         document.getElementById('btn8').value == "O" &&
+         document.getElementById('btn9').value == "O" || 
+    
+         document.getElementById("btn1").value == "O" &&
+         document.getElementById("btn4").value == "O" &&
+         document.getElementById("btn7").value == "O" ||
+        
+         document.getElementById('btn2').value == "O" &&
+         document.getElementById('btn5').value == "O" &&
+         document.getElementById('btn8').value == "O" || 
+             
+         document.getElementById('btn3').value == "O" &&
+         document.getElementById('btn6').value == "O" &&
+         document.getElementById('btn9').value == "O" || 
+             
+         document.getElementById('btn1').value == "O" &&
+         document.getElementById('btn5').value == "O" &&
+         document.getElementById('btn9').value == "O" ||
+             
+         document.getElementById('btn3').value == "O" &&
+         document.getElementById('btn7').value == "O" &&
+         document.getElementById('btn5').value == "O"  
+        ) {
+            alert("THE WINNER IS O!!!!");
+            reset();
+        }
+     }
+     
+    function reset(){
+         document.getElementById("btn1").value = "";
+         document.getElementById("btn2").value = "";
+         document.getElementById("btn3").value = "";
+         document.getElementById("btn4").value = "";
+         document.getElementById("btn5").value = "";
+         document.getElementById("btn6").value = "";
+         document.getElementById("btn7").value = "";
+         document.getElementById("btn8").value = "";
+         document.getElementById("btn9").value = "";
+         document.getElementById("btn1").disabled = "";
+         document.getElementById("btn2").disabled = "";
+         document.getElementById("btn3").disabled = "";
+         document.getElementById("btn4").disabled = "";
+         document.getElementById("btn5").disabled = "";
+         document.getElementById("btn6").disabled = "";
+         document.getElementById("btn7").disabled = "";
+         document.getElementById("btn8").disabled = "";
+         document.getElementById("btn9").disabled = "";
+        
+    }
+    
+    
+    </script>
+    </head>
+    
+<body>
+    <div class="title1"> <h1> TIC TAC TOE!!</h1></div>
+<div id="gamettt"> 
+    <div id="box">
+    <input type="button" id="btn1" onclick="clickBtn('btn1')"/>
+    <input type="button" id="btn2" onclick="clickBtn('btn2')"/>
+    <input type="button" id="btn3" onclick="clickBtn('btn3')"/>
+    <input type="button" id="btn4" onclick="clickBtn('btn4')"/>
+    <input type="button" id="btn5" onclick="clickBtn('btn5')"/> 
+    <input type="button" id="btn6" onclick="clickBtn('btn6')"/>
+    <input type="button" id="btn7" onclick="clickBtn('btn7')"/>
+    <input type="button" id="btn8" onclick="clickBtn('btn8')"/>
+    <input type="button" id="btn9" onclick="clickBtn('btn9')"/> 
+        
+    </div>
+    <br/>
+    <input type="button" id="resetbtn" onclick= "reset()" value="RESET"/>
+    
+    </div>
+    
+
+    
+    
+    
+    </body>
+</html>

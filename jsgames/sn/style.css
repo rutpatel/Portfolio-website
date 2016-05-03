@@ -1,0 +1,24 @@
+<style type="text/css">
+            body{
+                text-align: center;
+                margin: auto;
+                background-image: url(images/Purple-Plain-Textures2.jpg);
+                
+            }
+            
+            #giveinput {
+                
+                text-align: center;
+                margin: 20% auto auto auto;
+                column-span: all;
+                
+            }
+            #allinput{
+                font-size: 20px;
+            }
+            #guess {
+                font-size: 20px;
+            }
+
+        </style>
+    

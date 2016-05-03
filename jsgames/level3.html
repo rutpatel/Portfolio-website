@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+body {
+   background-image: url(background.png);
+   background-size:cover;	
+	
+}
+.level {
+  font-size: 36px;
+  font-family:Arial, Helvetica, sans-serif;
+  text-align:center;	
+}
+#memory_board {
+  background: rgba(0,0,0,0.9);
+  border: 999 1px solid;
+  height:540px;
+  width:950px;	
+  padding:24px;
+  margin: 2% auto;
+	
+}
+
+#memory_board > div {
+  background:url(qm.jpeg) no-repeat;
+  border:#000 1px solid;
+  width: 71px;
+  height: 71px;
+  float: left;
+  margin: 10px;
+  text-align:center;
+  padding:20px;
+  font-size:64px;
+  font-weight:bold;
+  cursor: pointer;
+ 
+}
+.nextlevel {
+   float: left;
+   margin: 2% auto auto 3%;
+   font-size:40px;
+   width: 15%;
+   font-weight: bold;
+   position: relative;
+   -webkit-animation-name: nextlevel;
+   -webkit-animation-duration: 2s;
+   -webkit-animation-iteration-count:infinite;
+   -webkit-animation-delay: 1s;
+   -animation-name: myhome;
+   -animation-duration: 2s;
+   animation-iteration-count:infinite;
+
+}
+@-webkit-keyframes nextlevel {
+ 0% { top:10%; right: 3%;}
+ 50% {top:10%; right:0%;	}
+ 100% { top:10%; right: 3%;}
+}
+ @keyframes nextlevel {
+	 0% { top: 10%; right: 3%;}
+	 50% { top: 10%; right: 0%;}
+     100% { top: 10%; right: 3%;}
+ }
+ .nextlevel a {
+	text-decoration:none;
+	color:#000; 
+	 
+ }
+ .home {
+   float: right;
+   margin: 2% auto auto 3%;
+   font-size:30px;
+   width: 20%;
+   font-weight: bold;
+   position: relative; 
+      -webkit-animation-name: home;
+   -webkit-animation-duration: 2s;
+   -webkit-animation-iteration-count:infinite;
+   -webkit-animation-delay: 2s;
+   -animation-name: home;
+   -animation-duration: 2s;
+   animation-iteration-count:infinite;
+
+}
+@-webkit-keyframes home {
+ 0% { top:10%; right: 3%;}
+ 50% {top:10%; right:0%;	}
+ 100% { top:10%; right: 3%;}
+}
+ @keyframes home {
+	 0% { top: 10%; right: 3%;}
+	 50% { top: 10%; right: 0%;}
+     100% { top: 10%; right: 3%;}
+ }
+ .home a{
+	text-decoration:none;
+	color:#000; 
+	 
+ }
+</style>
+<script>
+var memory_array = [ 'A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I', 'J', 'J', 'K', 'K', 'L', 'L', 'M', 'M', 'N', 'N']; 
+var memory_values = [];  
+var memory_tile_ids = [];
+var tiles_flipped = 0;
+
+Array.prototype.memory_tile_shuffle = function(){
+    var i= this.length, j, temp;
+	while(--i > 0) {
+	   	j = Math.floor(Math.random() * (i + 1));
+		temp = this[j];
+		this[j] = this [i];
+		this[i] = temp;
+	}
+
+} 
+
+function newboard() {
+   tiles_flipped = 0;
+   var output = ' ';
+   memory_array.memory_tile_shuffle();
+   for (var i = 0; i < memory_array.length; i++) {
+	   output += '<div id="tile_'+i+'" onclick="memoryFlipTile (this,\''+memory_array[i]+'\')"></div>';
+	        
+   }
+  document.getElementById('memory_board').innerHTML= output;
+   	
+}
+function memoryFlipTile (tile, val) {
+   if(tile.innerHTML == "" && memory_values.length < 2){
+	tile.style.background = '#FFF' ;
+	tile.innerHTML = val;
+	if (memory_values.length == 0){
+		memory_values.push(val) ;
+		memory_tile_ids.push(tile.id);
+	}
+	else if(memory_values.length == 1){
+	        memory_values.push(val);
+			memory_tile_ids.push(tile.id);
+			if(memory_values[0] == memory_values[1]){
+			tiles_flipped += 2;
+			memory_values = [];
+			memory_tile_ids = [];
+			if(tiles_flipped == memory_array.length){
+			alert("CONGRATULATION! YOU WIN THE GAME. GO BACK HOME NOW");
+			document.getElementById('memory_board').innerHTML ="";
+			newBoard(); 	
+			}
+		} else {
+		  function flip2Boards(){
+			var tile_1 = document.getElementById (memory_tile_ids [0]);
+			var tile_2 = document.getElementById (memory_tile_ids [1]);
+			tile_1.style.background = 'url(qm.jpeg) no-repeat';
+			tile_1.innerHTML = "";
+			tile_2.style.background = 'url(qm.jpeg) no-repeat';
+			tile_2.innerHTML = "";
+			memory_values = [];
+			memory_tile_ids = [];
+			
+		  }
+		  setTimeout(flip2Boards, 750);
+		}
+	 }
+   }
+}
+
+</script>
+
+</head>
+<body>
+<div class="level"> <h2> LEVEL-3 (Ninja)</h2></div>
+<div id="memory_board"></div>
+<div class="nextlevel"> <a href="level2.html"> &#8826 &#8826 Level-2 </a> </div>
+<div class="home"> <a href="www.rutpatel.com"> &#8826 &#8826 GO HOME &#8827 &#8827 </a> </div>
+<script>newboard();</script>
+
+</body>
+</html>
