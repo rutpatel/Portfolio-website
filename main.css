@@ -201,7 +201,10 @@ input[type=checkbox]:checked ~ #menu{
 }
 .slideanim {visibility:hidden;}
 
-
+.map {
+    height: 40%;
+    width:  100%;
+}
 
 /* css for about */
 
@@ -281,6 +284,9 @@ input[type=checkbox]:checked ~ #menu{
   text-decoration: underline;
 }
 
+.star, .star a {
+    font-size: 14px;
+}
 /* Call to Action */
 
 .call-to-action {
@@ -293,7 +299,11 @@ input[type=checkbox]:checked ~ #menu{
 .call-to-action .btn {
   margin: 20px;
 }
-
+  .uwaterloo img{
+        height: 200px;
+        width: 400px;
+    
+    }
 .call-to {
   text-shadow: none;
 }
@@ -336,6 +346,11 @@ i.scroll:hover {
  /*Responsive Styles*/
 @media screen and (max-width : 1150px){
 
+    .body{
+     width: 100%;
+    margin: 0px;
+    padding: 0px;
+    }
 .nbar ul {
 		position: static;
 		display: none;
@@ -390,6 +405,12 @@ ul li, li a {
 	 text-align: center;
 	 z-indez: 1;
 	 	}
+    
+    .uwaterloo img{
+        height: 200px;
+        width: 400px;
+    
+    }
 .rutimage img {
 	 height: 165px;
 	 width: 165px;
@@ -416,6 +437,12 @@ ul li, li a {
     }
 }
 @media screen and (max-width : 850px){
+    .body {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        background-attachment: fixed;
+    }
     .maincontent{
         height: 700px;
     }    
@@ -452,14 +479,12 @@ ul li, li a {
 .rutpatel{
 	  display: none;	
 	}
-.cs {
-		display: none;}
-.webdev {
-	  display: none;	
-	}
-.htmlcss{
-	  display: none;
+
+    .header {
+        background-attachment: fixed;
+          background: url('images/ls2.jpg') no-repeat center center fixed;
     }
+    
 .rutimage {
 	 height: 200px;
 	 width: 75%;
